@@ -48,3 +48,58 @@ To design a system to manage library books and members using structures and file
 ---
 
 ## Sample Run
+```
+--- Library Management System ---
+1. Add Book
+2. Search Book
+3. Borrow Book
+4. View All Books
+5. Exit
+Enter your choice: 1
+Enter Book ID: 1
+Enter Book Title: Harry Potter
+Enter Author Name: JK Rowling
+Book added successfully!
+
+--- Library Management System ---
+1. Add Book
+2. Search Book
+3. Borrow Book
+4. View All Books
+5. Exit
+Enter your choice: 4
+
+--- Library Books ---
+ID: 1, Title: Harry Potter, Author: JK Rowling, Status: Available
+
+--- Library Management System ---
+1. Add Book
+2. Search Book
+3. Borrow Book
+4. View All Books
+5. Exit
+Enter your choice: 3
+Enter Book ID to borrow: 1
+Book borrowed successfully!
+
+--- Library Management System ---
+1. Add Book
+2. Search Book
+3. Borrow Book
+4. View All Books
+5. Exit
+Enter your choice: 2
+Enter Book Title to search: Harry Potter
+
+--- Search Results ---
+ID: 1, Title: Harry Potter, Author: JK Rowling, Status: Borrowed
+
+--- Library Management System ---
+1. Add Book
+2. Search Book
+3. Borrow Book
+4. View All Books
+5. Exit
+Enter your choice: 5
+Exiting program...
+```
