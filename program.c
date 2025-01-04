@@ -4,15 +4,13 @@
 
 #define MAX_BOOKS 100
 
-// Define the Book structure
 typedef struct {
     int id;
     char title[100];
     char author[100];
-    int isBorrowed; // 0: Available, 1: Borrowed
+    int isBorrowed;
 } Book;
 
-// Function prototypes
 void addBook();
 void searchBook();
 void borrowBook();
@@ -55,7 +53,6 @@ int main() {
     return 0;
 }
 
-// Function to add a new book
 void addBook() {
     Book books[MAX_BOOKS];
     int count = loadFromFile(books);
@@ -69,12 +66,12 @@ void addBook() {
     printf("Enter Book ID: ");
     scanf("%d", &newBook.id);
     printf("Enter Book Title: ");
-    getchar(); // Consume newline
+    getchar();
     fgets(newBook.title, sizeof(newBook.title), stdin);
-    strtok(newBook.title, "\n"); // Remove trailing newline
+    strtok(newBook.title, "\n");
     printf("Enter Author Name: ");
     fgets(newBook.author, sizeof(newBook.author), stdin);
-    strtok(newBook.author, "\n"); // Remove trailing newline
+    strtok(newBook.author, "\n");
     newBook.isBorrowed = 0;
 
     books[count++] = newBook;
@@ -82,7 +79,6 @@ void addBook() {
     printf("Book added successfully!\n");
 }
 
-// Function to search for a book by title
 void searchBook() {
     Book books[MAX_BOOKS];
     int count = loadFromFile(books);
@@ -94,9 +90,9 @@ void searchBook() {
 
     char searchTitle[100];
     printf("Enter Book Title to search: ");
-    getchar(); // Consume newline
+    getchar();
     fgets(searchTitle, sizeof(searchTitle), stdin);
-    strtok(searchTitle, "\n"); // Remove trailing newline
+    strtok(searchTitle, "\n");
 
     printf("\n--- Search Results ---\n");
     int found = 0;
@@ -114,7 +110,6 @@ void searchBook() {
     }
 }
 
-// Function to borrow a book
 void borrowBook() {
     Book books[MAX_BOOKS];
     int count = loadFromFile(books);
@@ -143,7 +138,6 @@ void borrowBook() {
     printf("Book with ID %d not found.\n", bookId);
 }
 
-// Function to view all books
 void viewAllBooks() {
     Book books[MAX_BOOKS];
     int count = loadFromFile(books);
@@ -161,7 +155,6 @@ void viewAllBooks() {
     }
 }
 
-// Function to save books to a file
 void saveToFile(Book books[], int count) {
     FILE *file = fopen("books.dat", "wb");
     if (file == NULL) {
@@ -172,11 +165,10 @@ void saveToFile(Book books[], int count) {
     fclose(file);
 }
 
-// Function to load books from a file
 int loadFromFile(Book books[]) {
     FILE *file = fopen("books.dat", "rb");
     if (file == NULL) {
-        return 0; // No file found, return 0
+        return 0;
     }
     int count = fread(books, sizeof(Book), MAX_BOOKS, file);
     fclose(file);
